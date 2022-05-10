@@ -1,0 +1,35 @@
+//Button-controlled Stoplight Code
+const int red = 13; //creates constants to keep track of pins
+const int yellow = 12;
+const int green = 11;
+const int button = 10;
+int buttonState = 0; //creates a variable later used to determine if the button is pressed or not
+bool buttonPressed = false; //creates a variable used to determine if the button was pressed (for the yellow light)
+
+void setup(){
+  pinMode(red, OUTPUT);
+  pinMode(yellow, OUTPUT);
+  pinMode(green, OUTPUT);
+  pinMode(button, INPUT);
+}
+
+
+void loop(){
+ buttonState = digitalRead(button);
+  if(buttonState == HIGH && buttonPressed == false){
+    digitalWrite(green, HIGH);
+    digitalWrite(red, LOW);
+    buttonPressed = true;
+  }
+  else if(buttonPressed == true && buttonState == LOW){
+    digitalWrite(green, LOW);
+    digitalWrite(yellow, HIGH);
+    delay(2000);
+    buttonPressed = false;
+  }
+  else{
+    digitalWrite(yellow, LOW);
+    digitalWrite(red, HIGH);
+  }
+  
+}
