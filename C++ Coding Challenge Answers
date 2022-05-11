@@ -1,0 +1,68 @@
+//Coding Challenge Answers
+//Note that there is no "right" way to do these; these are just one possible and suggested way to complete the tasks
+
+//Print average of two numbers
+void printAvg(double one, double two){
+  double avg = (one+two)/2;
+  cout << "The average of the numbers "<< one << " and " << two << " is " << avg << endl;
+}
+
+//Square a number and divide it by two
+double squareOverTwo(double num){
+  return (num*num)/2;
+}
+
+//Print "It's a beautiful day" if isSunny is true
+void isBeautifulDay(bool isSunny){
+ 	if(isSunny){
+   	cout << "It's a beautiful day!"<<endl; 
+  }
+}
+
+//Count the number of T's in a string
+int countT (string str){
+  int counter = 0;
+  for(int i = 0; i < str.length(); i++){
+		if(str[i] == 't' || str[i] == 'T'){
+      counter++;
+    }
+  }
+  cout << "The number of T's in " + str + " is " << counter << endl;
+  return counter;
+}
+
+// Add "double" for every character that is repeated (but only if there are exactly two of that character)
+string addDouble(string str){
+  string Double = "";
+  for(int i = 0; i < str.length()-1; i++){
+   	char s = str[i];
+    int countBefore = 0;
+    int countAfter = 0;
+    for(int j = 0; j < i; j++){
+      if(str[i]==str[j]){
+       countBefore++; 
+      }
+    }
+    for(int k = i; k < str.length(); k++){
+      if(str[i]==str[k]){
+       countAfter++; 
+      }
+    }
+    if(countAfter==1 && countBefore==0){
+      Double += "double";
+    }
+  }
+  str += Double;
+  cout << str;
+  return str;
+}
+
+
+//To see how these work, call them in the main method:
+void main(){
+  printAvg(21.4, 61.09);
+  cout << squareOverTwo(3);
+  isBeautifulDay(true);
+  countT("tortoise");
+}
+
