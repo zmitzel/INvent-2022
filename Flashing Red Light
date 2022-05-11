@@ -1,0 +1,13 @@
+//Flashing red light
+const int red = 13;
+
+void setup(){
+  pinMode(red, OUTPUT); //sets the digital pin 13 to output mode
+}
+
+void loop(){
+  digitalWrite(red, HIGH); //sets the red LED to on
+  delay(500); //delays for 500 milliseconds
+  digitalWrite(red, LOW); //turns the red LED off
+  delay(500);
+}
